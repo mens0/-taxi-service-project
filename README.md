@@ -6,6 +6,9 @@ Django project for managing taxi drivers and cars in Taxi Service
 
 [Taxi service project on heroku](https://taxi-service001.herokuapp.com/)
 
+username: test_driver
+password: AcCtVRNKjb6ZDbs
+
 ## Installation
 
 Python 3 must be already installed
