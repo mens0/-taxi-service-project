@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>
+        Username: {{ driver.username }}
+    </h2>
+    <p><strong>First name:</strong> {{ driver.first_name }}</p>
+    <p><strong>Last name:</strong> {{ driver.last_name }}</p>
+    <p><strong>License number:</strong> {{ driver.license_number }}</p>
+
+    <div class="ml-12">
+        <h4>Cars</h4>
+
+        {#        {% for car in driver.cars.all %}#}
+        {#            <hr>#}
+        {#            <p><strong>Model:</strong> {{ car.model }}</p>#}
+        {#            <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>#}
+        {#            <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>#}
+        {% if driver.cars.all %}
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Manufacturer</th>
+                    <th>Model</th>
+                </tr>
+
+                {% for car in driver.cars.all %}
+                    <tr>
+                        <td>
+                            {{ car.id }}
+                        </td>
+                        <td>
+                            {{ car.manufacturer }}
+                        </td>
+                        <td>
+                            {{ car.model }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>User <a
+                    href="{% url 'taxi:driver-detail' pk=driver.pk %}">{{ driver.username }}</a>
+                has no cars at the moment.</p>
+        {% endif %}
+
+        <br>
+    </div>
+    <div class="buttons">
+        <a href="{% url "taxi:update-license" pk=driver.pk %}">
+            <button class="btn btn-warning">Update license</button>
+        </a>
+        <a href="{% url "taxi:delete-driver" pk=driver.pk %}">
+            <button class="btn btn-danger delete-driver">Delete driver</button>
+        </a>
+    </div>
+{% endblock %}
