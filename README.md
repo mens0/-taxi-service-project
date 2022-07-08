@@ -26,5 +26,5 @@ python manage.py runserver  # start Django project
 * Admin panel for advanced managing
 
 ## Demo
-![Website interface](img.png)
-![img_1.png](img_1.png)
+![](project_image.png)
+![](project_image1.png)
