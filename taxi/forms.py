@@ -13,7 +13,6 @@ def validate_license_number(license_number: str):
     elif not license_number[5:].isdigit():
         raise forms.ValidationError("Last 5 letters should be digits")
 
-
     return license_number
 
 
