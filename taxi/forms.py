@@ -6,12 +6,13 @@ from taxi.models import Driver, Car
 
 
 def validate_license_number(license_number: str):
-    if not license_number[:3].isupper() or not license_number[:3].isalpha():
+    if len(license_number) != 8:
+        raise forms.ValidationError("Password should be 8 symbols long")
+    elif not license_number[:3].isupper() or not license_number[:3].isalpha():
         raise forms.ValidationError("First 3 letters should be uppercase")
     elif not license_number[5:].isdigit():
         raise forms.ValidationError("Last 5 letters should be digits")
-    elif len(license_number) != 8:
-        raise forms.ValidationError("Password should be 8 symbols long")
+
 
     return license_number
 
