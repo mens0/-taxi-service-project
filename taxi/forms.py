@@ -6,8 +6,9 @@ from taxi.models import Driver, Car
 
 
 def validate_license_number(license_number: str):
-    error = "Password requirements: Password should be 8 characters long, first 3 characters " \
-            "should be uppercase, Last 5 characters should be digits"
+    error = "Password requirements: Password should be 8 characters long, " \
+            "first 3 characters should be uppercase, " \
+            "Last 5 characters should be digits"
 
     if len(license_number) != 8:
         raise forms.ValidationError(error)
